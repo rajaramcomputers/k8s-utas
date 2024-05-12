@@ -1,0 +1,60 @@
+Session
+https://killercoda.com/playgrounds/scenario/kubernetes
+
+Pod 
+
+// Imperative Way
+// Imperative commands are those where you directly 
+// instruct Kubernetes to perform a specific action. 
+
+kubectl run nginx-pod --image=nginx --restart=Never --port=80 -n default
+
+kubectl get pods
+
+kubectl expose pod nginx-pod --type=NodePort --port=80 --name=nginx-service
+
+kubectl get svc
+
+//Declarative Way
+// Declarative configuration involves creating a YAML file 
+// that describes the desired state of the resource.
+
+kubectl apply -f nginx-pod.yaml -n default
+
+kubectl apply -f nginx-service.yaml -n default
+
+kubectl get pods
+
+kubectl get svc
+
+kubectl delete service nginx-service
+kubectl delete pod nginx-pod
+
+kubectl delete service nginx1-service
+kubectl delete pod nginx1-pod
+
+// ReplicaSets are a more powerful and flexible replacement for ReplicationControllers. 
+// They provide additional features like selector options and rolling updates.
+
+kubectl apply -f nginx-replicaset.yaml
+kubectl apply -f nginx-svc.yaml
+
+kubectl get all
+
+kubectl delete -f nginx-replicaset.yaml
+kubectl delete -f nginx-svc.yaml
+
+Deployment
+
+// When it comes to deploying applications on Kubernetes, Deployments 
+// are the go-to resource for many reasons. Deployments are a higher-level abstraction 
+// that includes ReplicaSets. They provide features like rolling updates, rollback, and scaling.
+
+kubectl apply -f nginx-deploy.yaml
+kubectl apply -f nginx-svc.yaml
+
+kubectl get all
+
+kubectl scale --replicas=5 deployments/nginx-deployment
+
+
