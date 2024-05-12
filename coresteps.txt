@@ -1,3 +1,4 @@
+git clone https://github.com/rajaramcomputers/k8s-utas.git
 Session
 https://killercoda.com/playgrounds/scenario/kubernetes
 
