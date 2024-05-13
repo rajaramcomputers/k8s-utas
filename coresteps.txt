@@ -42,7 +42,7 @@ kubectl apply -f nginx-svc.yaml
 
 kubectl get all
 
-kubectl delete -f nginx-replicaset.yaml
+kubectl delete -f nginxreplicaset.yaml
 kubectl delete -f nginx-svc.yaml
 
 Deployment
